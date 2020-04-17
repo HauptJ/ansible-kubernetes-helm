@@ -1,0 +1,24 @@
+---
+
+- name: Download helmfile binary
+  get_url:
+    url: '{{ helmfile_url }}'
+    dest: '/tmp/helmfile'
+
+- name: copy helmfile binary
+  become: yes
+  become_user: root
+  copy:
+    remote_src: yes
+    src: '/tmp/helmfile'
+    dest: '{{ kubernetes_helm_bin_dir }}/helmfile'
+    owner: root
+    group: root
+    mode: 0755
+  
+- name: clean up
+  become: yes
+  become_user: root
+  file:
+    path: '/tmp/helmfile'
+    state: absent

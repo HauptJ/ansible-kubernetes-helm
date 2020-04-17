@@ -11,3 +11,5 @@
         - '{{ role_path }}/vars'
 
 - include_tasks: '{{ kubernetes_helm_installer | default("tgz") }}.yml'
+- include_tasks: 'helmfile.yml'
+- include_tasks: 'plugins.yml'

@@ -1,0 +1,7 @@
+---
+- name: Install Helm plugins
+  become: yes
+  become_user: root
+  command: "/usr/local/bin/helm plugin install {{ item.repo }} --version {{ item.branch }}"
+  loop:
+    - { repo: 'https://github.com/databus23/helm-diff', branch: 'master' }

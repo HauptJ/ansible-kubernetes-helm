@@ -7,6 +7,14 @@ kubernetes_helm_archive_type: tar.gz
 
 kubernetes_helm_bin_dir: /usr/local/bin
 
+helmfile_url: https://github.com/roboll/helmfile/releases/download/v0.109.1/helmfile_linux_amd64
+
+helm_plugins:
+  - { repo: 'https://github.com/databus23/helm-diff', branch: 'master' }
+
+
+
+
 kubernetes_helm_checksums:
   v2.7.2:
     # https://get.helm.sh/helm-v2.7.2-darwin-amd64.tar.gz.sha256
